@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Multiplica - aplicación web para aprender a administrar y hacer crecer tu dinero">
+  <title>Multiplica | Haz crecer tu dinero</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-icon">↗</div>
+        <div>
+          <strong>Multiplica</strong>
+          <span>Haz crecer tu dinero</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-section="inicio">⌂ <span>Inicio</span></button>
+        <button class="nav-item" data-section="presupuesto">▣ <span>Mi presupuesto</span></button>
+        <button class="nav-item" data-section="crecer">🚀 <span>Haz crecer tu dinero</span></button>
+        <button class="nav-item" data-section="metas">◎ <span>Mis metas</span></button>
+        <button class="nav-item" data-section="progreso">▥ <span>Mi progreso</span></button>
+        <button class="nav-item" data-section="aprende">▤ <span>Aprende</span></button>
+      </nav>
+
+      <div class="side-card">
+        <div class="trophy">🏆</div>
+        <h3>¡Sigue así!</h3>
+        <p>Cada pequeño paso te acerca a tus metas financieras.</p>
+        <button class="outline-btn" onclick="showSection('progreso')">Ver progreso</button>
+      </div>
+
+      <div class="user-card">
+        <div class="avatar">👨🏻‍💻</div>
+        <div>
+          <strong>¡Hola, Juan!</strong>
+          <span>Nivel 3 · Buen administrador</span>
+        </div>
+      </div>
+      <div class="xp">
+        <div><span>350 / 600 XP</span><span>58%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width:58%"></div></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+        <div class="search"><span>⌕</span><input id="searchInput" placeholder="Buscar en Multiplica..." /></div>
+        <div class="top-actions">
+          <button class="icon-btn" title="Notificaciones" onclick="notify('No tienes nuevas notificaciones')">♧<b>3</b></button>
+          <div class="balance"><small>Saldo disponible</small><strong id="topBalance">$500.000 COP</strong></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- INICIO -->
+        <section class="section active" id="inicio">
+          <div class="page-title">
+            <div>
+              <h1>¡Bienvenido, Juan! 👋</h1>
+              <p>Aquí tienes un resumen de tus finanzas.</p>
+            </div>
+            <button class="primary-btn" onclick="openTransaction()">+ Registrar movimiento</button>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card green">
+              <div class="stat-icon">▣</div>
+              <div><span>Ingresos del mes</span><strong id="incomeValue">$1.500.000</strong><small>↑ 12% vs mes anterior</small></div>
+              <div class="spark">⌁⌁⌁⌁</div>
+            </article>
+            <article class="stat-card red">
+              <div class="stat-icon">▣</div>
+              <div><span>Gastos del mes</span><strong id="expenseValue">$750.000</strong><small>↓ 8% vs mes anterior</small></div>
+              <div class="spark">⌁⌁⌁⌁</div>
+            </article>
+            <article class="stat-card blue">
+              <div class="stat-icon">▰</div>
+              <div><span>Ahorros</span><strong id="savingValue">$300.000</strong><small>↑ 15% vs mes anterior</small></div>
+              <div class="spark">⌁⌁⌁⌁</div>
+            </article>
+            <article class="stat-card purple">
+              <div class="stat-icon">↗</div>
+              <div><span>Para hacer crecer</span><strong id="growthValue">$200.000</strong><small>↑ 10% vs mes anterior</small></div>
+              <div class="spark">⌁⌁⌁⌁</div>
+            </article>
+          </div>
+
+          <div class="two-col">
+            <article class="card budget-card">
+              <div class="card-head"><h2>Mi presupuesto</h2><button class="link-btn" onclick="showSection('presupuesto')">Ver detalle</button></div>
+              <div class="budget-content">
+                <div class="donut"><div><strong>$1.500.000</strong><span>Total</span></div></div>
+                <div class="legend">
+                  <p><i class="dot green-dot"></i> Necesidades <b>50%</b><strong>$750.000</strong></p>
+                  <p><i class="dot blue-dot"></i> Ahorro <b>20%</b><strong>$300.000</strong></p>
+                  <p><i class="dot purple-dot"></i> Inversión / Emprendimiento <b>20%</b><strong>$300.000</strong></p>
+                  <p><i class="dot orange-dot"></i> Gustos <b>10%</b><strong>$150.000</strong></p>
+                </div>
+              </div>
+              <div class="tip">💡 <b>Consejo del día:</b> Antes de gastar, pregúntate: ¿Lo necesito o solo lo quiero?</div>
+            </article>
+
+            <article class="card">
+              <div class="card-head"><h2>Haz crecer tu dinero</h2><button class="link-btn" onclick="showSection('crecer')">Ver todas las opciones</button></div>
+              <div class="opportunity-grid">
+                <div class="opportunity"><div class="photo candy">🍬</div><h3>Comprar dulces para vender</h3><small>Inversión desde</small><b>$20.000</b><small>Ganancia estimada</small><strong>$10.000 - $15.000</strong><em class="low">Bajo riesgo</em></div>
+                <div class="opportunity"><div class="photo bracelets">📿</div><h3>Accesorios para revender</h3><small>Inversión desde</small><b>$50.000</b><small>Ganancia estimada</small><strong>$20.000 - $40.000</strong><em class="medium">Medio riesgo</em></div>
+                <div class="opportunity"><div class="photo clothes">👕</div><h3>Ropa básica al por mayor</h3><small>Inversión desde</small><b>$100.000</b><small>Ganancia estimada</small><strong>$40.000 - $80.000</strong><em class="medium-high">Medio - Alto</em></div>
+                <div class="opportunity"><div class="photo shop">🏪</div><h3>Emprendimiento pequeño</h3><small>Inversión desde</small><b>$200.000</b><small>Ganancia estimada</small><strong>$80.000 - $150.000</strong><em class="high">Alto riesgo</em></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="three-col">
+            <article class="card goals">
+              <div class="card-head"><h2>Mis metas</h2><button class="link-btn" onclick="showSection('metas')">Ver todas</button></div>
+              <div class="goal"><div class="goal-icon">🚲</div><div class="grow"><strong>Comprar una bicicleta</strong><div class="progress-track"><div class="progress-fill" style="width:44%"></div></div><small>$350.000 / $800.000</small></div><b>44%</b></div>
+              <div class="goal"><div class="goal-icon">🏪</div><div class="grow"><strong>Iniciar mi negocio</strong><div class="progress-track purple-track"><div class="progress-fill" style="width:20%"></div></div><small>$200.000 / $1.000.000</small></div><b>20%</b></div>
+            </article>
+
+            <article class="card progress-card">
+              <div class="card-head"><h2>Mi progreso</h2><button class="link-btn" onclick="showSection('progreso')">Ver reporte</button></div>
+              <div class="mini-stats"><span>💰 Dinero ahorrado <b>$300.000</b>↑ 15%</span><span>🔄 Dinero reinvertido <b>$150.000</b>↑ 20%</span><span>💡 Ganancias obtenidas <b>$60.000</b>↑ 18%</span></div>
+              <div class="chart"><div class="line"></div><div class="chart-labels"><span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span></div></div>
+            </article>
+
+            <article class="card lessons">
+              <div class="card-head"><h2>Aprende algo nuevo</h2><button class="link-btn" onclick="showSection('aprende')">Ver todos</button></div>
+              <button class="lesson" onclick="learn('¿Qué es ahorrar y por qué es importante?')">🔐 <span>¿Qué es ahorrar y por qué es importante?<small>5 min</small></span></button>
+              <button class="lesson" onclick="learn('Cómo invertir tu dinero de forma inteligente')">📊 <span>Cómo invertir tu dinero de forma inteligente<small>7 min</small></span></button>
+              <button class="lesson" onclick="learn('Necesidad vs. Deseo')">💗 <span>Necesidad vs. Deseo: aprende a diferenciarlos<small>4 min</small></span></button>
+              <button class="lesson" onclick="learn('Cómo calcular tus ganancias')">▦ <span>Cómo calcular tus ganancias fácilmente<small>6 min</small></span></button>
+            </article>
+          </div>
+        </section>
+
+        <!-- PRESUPUESTO -->
+        <section class="section" id="presupuesto">
+          <div class="page-title"><div><h1>Mi presupuesto 💰</h1><p>Organiza tu dinero antes de gastarlo.</p></div><button class="primary-btn" onclick="openTransaction()">+ Nuevo movimiento</button></div>
+          <div class="card budget-big">
+            <h2>Distribución recomendada</h2>
+            <div class="budget-bars">
+              <div><span>Necesidades <b>50%</b></span><div><i style="width:50%"></i></div><strong>$750.000</strong></div>
+              <div><span>Ahorro <b>20%</b></span><div><i style="width:20%"></i></div><strong>$300.000</strong></div>
+              <div><span>Inversión / emprendimiento <b>20%</b></span><div><i style="width:20%"></i></div><strong>$300.000</strong></div>
+              <div><span>Gustos <b>10%</b></span><div><i style="width:10%"></i></div><strong>$150.000</strong></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h2>Movimientos recientes</h2><button class="link-btn" onclick="openTransaction()">Agregar</button></div>
+            <div class="transactions" id="transactions">
+              <div><span>💼 Salario</span><b class="income">+$1.500.000</b></div>
+              <div><span>🛒 Mercado</span><b class="expense">-$320.000</b></div>
+              <div><span>🚌 Transporte</span><b class="expense">-$80.000</b></div>
+              <div><span>💰 Ahorro</span><b class="saving">-$300.000</b></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CRECER -->
+        <section class="section" id="crecer">
+          <div class="page-title"><div><h1>Haz crecer tu dinero 🚀</h1><p>Explora ideas para generar ingresos. Las ganancias son estimaciones, no garantías.</p></div></div>
+          <div class="filters"><button class="filter active" onclick="filterCards('all',this)">Todas</button><button class="filter" onclick="filterCards('low',this)">Bajo riesgo</button><button class="filter" onclick="filterCards('medium',this)">Medio</button><button class="filter" onclick="filterCards('high',this)">Alto</button></div>
+          <div class="growth-grid" id="growthGrid">
+            <article class="growth-card" data-risk="low"><div class="big-emoji">🍬</div><h2>Venta de dulces</h2><p>Compra productos al por mayor y véndelos individualmente.</p><div class="investment"><span>Inversión mínima</span><b>$20.000</b></div><div class="investment"><span>Ganancia estimada</span><b>$10.000 - $15.000</b></div><em class="low">Bajo riesgo</em><button onclick="simulate('Venta de dulces',20000,15000)">Simular</button></article>
+            <article class="growth-card" data-risk="medium"><div class="big-emoji">📿</div><h2>Accesorios</h2><p>Revende pulseras, collares o accesorios comprados al por mayor.</p><div class="investment"><span>Inversión mínima</span><b>$50.000</b></div><div class="investment"><span>Ganancia estimada</span><b>$20.000 - $40.000</b></div><em class="medium">Medio riesgo</em><button onclick="simulate('Accesorios',50000,30000)">Simular</button></article>
+            <article class="growth-card" data-risk="high"><div class="big-emoji">👕</div><h2>Ropa para revender</h2><p>Compra prendas básicas y véndelas con un margen de ganancia.</p><div class="investment"><span>Inversión mínima</span><b>$100.000</b></div><div class="investment"><span>Ganancia estimada</span><b>$40.000 - $80.000</b></div><em class="high">Mayor riesgo</em><button onclick="simulate('Ropa para revender',100000,60000)">Simular</button></article>
+            <article class="growth-card" data-risk="high"><div class="big-emoji">🏪</div><h2>Pequeño negocio</h2><p>Planifica un emprendimiento y controla costos, ventas y reinversión.</p><div class="investment"><span>Inversión mínima</span><b>$200.000</b></div><div class="investment"><span>Ganancia estimada</span><b>$80.000 - $150.000</b></div><em class="high">Mayor riesgo</em><button onclick="simulate('Pequeño negocio',200000,110000)">Simular</button></article>
+          </div>
+        </section>
+
+        <!-- METAS -->
+        <section class="section" id="metas">
+          <div class="page-title"><div><h1>Mis metas 🎯</h1><p>Convierte tus objetivos en pequeños pasos.</p></div><button class="primary-btn" onclick="addGoal()">+ Nueva meta</button></div>
+          <div class="goal-list">
+            <div class="goal-large"><div class="goal-icon">🚲</div><div class="grow"><h2>Comprar una bicicleta</h2><p>Meta: $800.000 · Ahorrado: $350.000</p><div class="progress-track"><div class="progress-fill" style="width:44%"></div></div></div><strong>44%</strong></div>
+            <div class="goal-large"><div class="goal-icon">🏪</div><div class="grow"><h2>Iniciar mi negocio</h2><p>Meta: $1.000.000 · Ahorrado: $200.000</p><div class="progress-track"><div class="progress-fill" style="width:20%"></div></div></div><strong>20%</strong></div>
+          </div>
+        </section>
+
+        <!-- PROGRESO -->
+        <section class="section" id="progreso">
+          <div class="page-title"><div><h1>Mi progreso 📈</h1><p>Observa cómo estás mejorando tus hábitos financieros.</p></div></div>
+          <div class="stats-grid">
+            <article class="stat-card green"><div class="stat-icon">💰</div><div><span>Dinero ahorrado</span><strong>$300.000</strong><small>↑ 15%</small></div></article>
+            <article class="stat-card purple"><div class="stat-icon">🔄</div><div><span>Dinero reinvertido</span><strong>$150.000</strong><small>↑ 20%</small></div></article>
+            <article class="stat-card blue"><div class="stat-icon">💡</div><div><span>Ganancias obtenidas</span><strong>$60.000</strong><small>↑ 18%</small></div></article>
+          </div>
+          <div class="card big-chart"><h2>Crecimiento de tus ahorros</h2><div class="chart large"><div class="bars"><i style="height:25%"></i><i style="height:38%"></i><i style="height:45%"></i><i style="height:58%"></i><i style="height:65%"></i><i style="height:82%"></i><i style="height:95%"></i></div></div></div>
+        </section>
+
+        <!-- APRENDE -->
+        <section class="section" id="aprende">
+          <div class="page-title"><div><h1>Aprende 📚</h1><p>Conceptos sencillos para tomar mejores decisiones con tu dinero.</p></div></div>
+          <div class="learn-grid">
+            <article class="learn-card" onclick="learn('¿Qué es ahorrar?')">💰<h2>¿Qué es ahorrar?</h2><p>Aprende por qué separar una parte de tus ingresos te ayuda a alcanzar metas.</p><span>5 minutos →</span></article>
+            <article class="learn-card" onclick="learn('¿Cómo invertir?')">📊<h2>¿Cómo invertir?</h2><p>Conoce la diferencia entre ahorrar, invertir y emprender.</p><span>7 minutos →</span></article>
+            <article class="learn-card" onclick="learn('Necesidad vs. deseo')">🧠<h2>Necesidad vs. deseo</h2><p>Identifica gastos que puedes evitar y mejora tu presupuesto.</p><span>4 minutos →</span></article>
+            <article class="learn-card" onclick="learn('Cómo calcular ganancias')">🧮<h2>Calcula tus ganancias</h2><p>Usa una fórmula sencilla para saber cuánto puedes ganar al vender.</p><span>6 minutos →</span></article>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="close" onclick="closeModal()">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
